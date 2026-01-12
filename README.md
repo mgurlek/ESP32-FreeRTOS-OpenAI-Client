@@ -35,7 +35,7 @@ An ESP32-based AI Assistant that uses FreeRTOS and the OpenAI API to answer ques
 
 | Component | Quantity | Description | Note |
 | :--- | :---: | :--- | :--- |
-| **ESP32 Dev Module** | 1 | Microcontroller (Wi-Fi + BLE) | ESP32-WROOM-32 or similar |
+| **ESP32 N16R8** | 1 | Microcontroller (Wi-Fi + BLE) | ESP32-WROOM-32 or similar |
 | **ST7735 TFT Display** | 1 | 1.8" Color Display (128x160) | SPI Interface |
 | **Push Button** | 1 | Momentary Switch | For System Monitor toggle |
 | **Jumper Wires** | ~10 | Male-to-Male / Male-to-Female | For connections |
