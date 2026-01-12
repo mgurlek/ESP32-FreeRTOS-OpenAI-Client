@@ -31,6 +31,17 @@ An ESP32-based AI Assistant that uses FreeRTOS and the OpenAI API to answer ques
 - **FreeRTOS** (Included in ESP-IDF)
 - **OpenAI API Key**
 
+## Bill of Materials (BOM)
+
+| Component | Quantity | Description | Note |
+| :--- | :---: | :--- | :--- |
+| **ESP32 Dev Module** | 1 | Microcontroller (Wi-Fi + BLE) | ESP32-WROOM-32 or similar |
+| **ST7735 TFT Display** | 1 | 1.8" Color Display (128x160) | SPI Interface |
+| **Push Button** | 1 | Momentary Switch | For System Monitor toggle |
+| **Jumper Wires** | ~10 | Male-to-Male / Male-to-Female | For connections |
+| **Breadboard** | 1 | Prototyping Board | Optional, for easy wiring |
+| **USB Cable** | 1 | Micro USB | Data capable for programming |
+
 ## SDK Configuration & Setup
 
 ### 1. Install ESP-IDF
@@ -42,7 +53,26 @@ git clone <repository-url>
 cd ESP32-FreeRTOS-OpenAI-Client
 ```
 
-### 3. Configure the Project
+### 3. Initialize the Project
+Set the target to ESP32:
+```bash
+idf.py set-target esp32
+```
+
+### 4. Configure SDK (Important!)
+You need to configure the project to use the custom partition table provided in `partitions.csv`.
+
+1. Run the configuration tool:
+   ```bash
+   idf.py menuconfig
+   ```
+2. Navigate to **Partition Table**.
+3. Select **Partition Table**.
+4. Choose **Custom partition table CSV**.
+5. Ensure **Custom partition CSV file** is set to `partitions.csv`.
+6. Save (Press `S`) and Exit (Press `Esc`).
+
+### 5. Configure the Project
 You must configure your WiFi credentials and OpenAI API Key before building.
 
 Open the file `main/main.c` and modify the following macros:
@@ -59,19 +89,19 @@ Open the file `main/main.c` and modify the following macros:
 - Change `OPENAI_MODEL` to use a different model (default: `gpt-3.5-turbo`).
 - Adjust `OFFSET_X` and `OFFSET_Y` if your screen content is shifted.
 
-### 4. Build the Project
+### 6. Build the Project
 Run the following command to compile the project:
 ```bash
 idf.py build
 ```
 
-### 5. Flash to ESP32
+### 7. Flash to ESP32
 Connect your ESP32 via USB and flash the firmware (replace `PORT` with your serial port, e.g., `/dev/ttyUSB0` or `COM3`):
 ```bash
 idf.py -p PORT flash
 ```
 
-### 6. Monitor Output
+### 8. Monitor Output
 To see logs and debug information:
 ```bash
 idf.py monitor
