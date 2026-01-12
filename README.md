@@ -2,8 +2,8 @@
 
 An ESP32-based AI Assistant that uses FreeRTOS and the OpenAI API to answer questions. It features a local web server for submitting questions and an ST7735 display to show status and responses.
 
-## Developer
-**Mert Gurlek**
+## Developers
+**Mert Gurlek, Yigit Ozdemir**
 
 ## Key Features
 - **OpenAI Integration**: Direct communication with OpenAI API (GPT-3.5-turbo).
